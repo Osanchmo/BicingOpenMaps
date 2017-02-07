@@ -68,6 +68,8 @@ public class StationAPI {
                 station.setSlots(jsonStat.getString("slots"));
                 station.setBikes(jsonStat.getString("bikes"));
                 station.setStatus(jsonStat.getString("status"));
+
+                stations.add(station);
             }
         } catch (JSONException e) {
             e.printStackTrace();
