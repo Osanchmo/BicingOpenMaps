@@ -101,10 +101,32 @@ public class MapFragment extends Fragment {
         int slots = Integer.valueOf(s.getSlots())+bicis;
         int slotsDisp = slots-bicis;
 
+        double disp =(bicis/slotsDisp)*100;
+
         if(s.isMecanic()){
-
+            if (disp == 0){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark0));
+            }else if(disp > 0){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark25));
+            }else if(disp > 25){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark50));
+            }else if (disp>50){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark75));
+            }else if (disp>75){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark100));
+            }
         }else {
-
+            if (disp == 0){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec0));
+            }else if(disp > 0){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec25));
+            }else if(disp > 25){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec50));
+            }else if (disp>50){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec75));
+            }else if (disp>75){
+                startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec100));
+            }
         }
 
         String description = "Bicicletas: " + bicis + "\n slots: " + slotsDisp;
@@ -112,11 +134,5 @@ public class MapFragment extends Fragment {
         return startMarker;
     }
 
-    public void setMecanic(){
-
-    }
-    public void setElectric(){
-
-    }
 }
 
