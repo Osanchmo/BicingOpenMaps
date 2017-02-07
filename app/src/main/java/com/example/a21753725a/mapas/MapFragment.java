@@ -96,8 +96,27 @@ public class MapFragment extends Fragment {
         startMarker.setPosition(new GeoPoint(Double.valueOf(s.getLat()),Double.valueOf(s.getLon())));
         startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         startMarker.setTitle(s.getId() + " | " + s.getStreetName());
+
+        int bicis = Integer.valueOf(s.getBikes());
+        int slots = Integer.valueOf(s.getSlots())+bicis;
+        int slotsDisp = slots-bicis;
+
+        if(s.isMecanic()){
+
+        }else {
+
+        }
+
+        String description = "Bicicletas: " + bicis + "\n slots: " + slotsDisp;
+        startMarker.setSubDescription(description);
         return startMarker;
     }
 
+    public void setMecanic(){
+
+    }
+    public void setElectric(){
+        
+    }
 }
 

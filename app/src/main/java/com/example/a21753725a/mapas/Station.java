@@ -6,7 +6,7 @@ package com.example.a21753725a.mapas;
 
 public class Station {
     private String id;
-    private String type;
+    private boolean mecanic;
     private String lat;
     private String lon;
     private String streetName;
@@ -71,12 +71,12 @@ public class Station {
         this.lat = lat;
     }
 
-    public String getType() {
-        return type;
+    public boolean isMecanic() {
+        return mecanic;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setMecanic(boolean mecanic) {
+        this.mecanic = mecanic;
     }
 
     public String getId() {

@@ -60,7 +60,12 @@ public class StationAPI {
                 Station station = new Station();
 
                 station.setId(jsonStat.getString("id"));
-                station.setType(jsonStat.getString("type"));
+                String type = jsonStat.getString("type");
+                if (type == "BIKE"){
+                    station.setMecanic(true);
+                }else{
+                    station.setMecanic(false);
+                }
                 station.setLat(jsonStat.getString("latitude"));
                 station.setLon(jsonStat.getString("longitude"));
                 station.setStreetName(jsonStat.getString("streetName"));
