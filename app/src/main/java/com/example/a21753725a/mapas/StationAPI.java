@@ -61,7 +61,7 @@ public class StationAPI {
 
                 station.setId(jsonStat.getString("id"));
                 String type = jsonStat.getString("type");
-                if (type == "BIKE"){
+                if (type.equalsIgnoreCase("BIKE")){
                     station.setMecanic(true);
                 }else{
                     station.setMecanic(false);

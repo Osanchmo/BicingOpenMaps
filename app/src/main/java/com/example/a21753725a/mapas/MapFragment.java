@@ -99,37 +99,42 @@ public class MapFragment extends Fragment {
 
         int bicis = Integer.valueOf(s.getBikes());
         int slots = Integer.valueOf(s.getSlots())+bicis;
-        int slotsDisp = slots-bicis;
+        int slotsDisp = slots+bicis;
+        double disp;
 
-        double disp =(bicis/slotsDisp)*100;
+        if (bicis == 0){
+            disp = 0;
+        }else {
+            disp = (bicis * 100) / slotsDisp;
+        }
 
         if(s.isMecanic()){
             if (disp == 0){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark0));
-            }else if(disp > 0){
+            }else if(disp >= 0 && disp < 25){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark25));
-            }else if(disp > 25){
+            }else if(disp >= 25 && disp < 50){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark50));
-            }else if (disp>50){
+            }else if (disp >= 50 && disp < 75){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark75));
-            }else if (disp>75){
+            }else if (disp>= 75 && disp < 100){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.mark100));
             }
         }else {
             if (disp == 0){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec0));
-            }else if(disp > 0){
+            }else if(disp >= 0 && disp < 25){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec25));
-            }else if(disp > 25){
+            }else if(disp >= 25 && disp < 50){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec50));
-            }else if (disp>50){
+            }else if (disp>= 50 && disp < 75){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec75));
-            }else if (disp>75){
+            }else if (disp >=75 && disp < 100){
                 startMarker.setIcon(ContextCompat.getDrawable(getContext(),R.drawable.elec100));
             }
         }
 
-        String description = "Bicicletas: " + bicis + "\n slots: " + slotsDisp;
+        String description = "Bicicletas: " + bicis + "\n slots: " + slots;
         startMarker.setSubDescription(description);
         return startMarker;
     }
